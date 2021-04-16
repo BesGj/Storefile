@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <title>Storefile</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
 
   <body>
+    <header class="container">
+      <% if signed_in?  %>
+      Signed in as: <%= current_user.email %>
+      <%= button_to 'Sign out',  destroy_user_session_path, method: :delete  %>
+      <% else  %>
+        <%= link_to 'Sign in', new_user_session_path %>
+        <%end  %>
+    </header>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
