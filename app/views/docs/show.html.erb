@@ -2,6 +2,6 @@
 <p><%= @doc.content %></p>
 
 
-<%= link_to "All Docs", docs_path %>
-<%= link_to "Fix Doc", edit_doc_path(@doc) %>
-<%= link_to "Delete", doc_path(@doc), method: :delete, data: { confirm: "Are you sure?" } %>
+<%= link_to "All Docs", docs_path, class:"btn btn-info" %>
+<%= link_to "Fix Doc", edit_doc_path(@doc), class:"btn btn-info" %>
+<%= link_to "Delete", doc_path(@doc), class: "btn btn-danger", method: :delete, data: { confirm: "Are you sure?" } %>
